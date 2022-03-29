@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            <h1>{{titulo}}</h1>
+            <input type="text" v-model="nuevaFruta" @keyup.enter="agregarFruta">
+            <button v-on:click="agregarFruta">Agregar</button>
+            <ul>
+                <li v-for="fruta of frutas"> <!-- 'v-for' es la forma de crear un bucle for con VUE en el html.
+                    "fruta of frutas" es la forma de iterar el array frutas con el item fruta. -->
+                    <input type="number" v-model.number="fruta.cantidad">
+                    {{fruta.nombre}}
+                    <button @click="fruta.cantidad++">+</button>
+                    <samp v-if="fruta.cantidad == 0"> - Sin Stock</samp> <!-- Esta es la forma de hacer un if, al igual que con el for
+                    ponemos 'v-if' para indicar que es un if. Y "fruta.cantidad == 0" es la condicion a cumplir. -->
+                </li>
+            </ul>
+            <h4>Total: {{sumarFrutas}}</h4>
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="01.js"></script>
+</body>
+</html>
